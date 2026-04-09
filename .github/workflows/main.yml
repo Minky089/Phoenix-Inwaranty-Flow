@@ -48,18 +48,3 @@ jobs:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_dir: newman/
 
-      - name: Send email notification
-        if: always() 
-        uses: dawidd6/action-send-mail@v16
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.GOOGLE_APP_PASSWORD }}
-          subject: Phoenix Inwarranty Flow Test Execution Notification
-          to: quangnt0089@gmail.com
-          from: ${{ secrets.EMAIL_USERNAME }}
-          body: |
-                Hello,
-                Phoenix Inwarranty Flow tests has been executed. Please find the published report here:
-                https://minky089.github.io/Phoenix-Inwaranty-Flow/index.html
